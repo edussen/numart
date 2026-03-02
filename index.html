@@ -15,6 +15,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -37,18 +38,20 @@
     }
 
     .pulse {
-      animation: pulse 1.5s ease-in-out infinite;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-
-      0%,
-      100% {
+      0% {
         transform: scale(1);
       }
 
       50% {
-        transform: scale(1.05);
+        transform: scale(1.08);
+      }
+
+      100% {
+        transform: scale(1);
       }
     }
 
@@ -63,6 +66,9 @@
       position: absolute;
       inset: 0;
       transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
     }
 
     .phone-step.hidden {
@@ -473,50 +479,47 @@
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center gap-8">
           <div class="text-2xl font-bold">
-            <img class="om" src="https://imagenes.numart.com.co/logo-light-numart.png" alt="Logo Light">
+            <img class="om" src="https://pub-03d0689f896f4c1b96c0eadaaff42219.r2.dev/logo-light-numart.png"
+              alt="Numart Logo">
           </div>
 
           <nav class="hidden lg:flex items-center gap-6">
             <button class="text-blue-900 hover:text-blue-600 transition-colors text-sm font-medium">
-              Personal
+              Servicios
               <span class="ml-1">▼</span>
             </button>
-            <button class="text-blue-900 hover:text-blue-600 transition-colors text-sm font-medium">
-              Empresas
-              <span class="ml-1">▼</span>
-            </button>
-            <button class="text-blue-900 hover:text-blue-600 transition-colors text-sm font-medium">
-              Grandes empresas
-              <span class="ml-1">▼</span>
-            </button>
-            <a href="#" class="text-blue-900 hover:text-blue-600 transition-colors text-sm font-medium">
+            <a href="#pricing" class="text-blue-900 hover:text-blue-600 transition-colors text-sm font-medium">
+              Planes
+            </a>
+            <a href="https://help.numart.com.co" class="text-blue-900 hover:text-blue-600 transition-colors text-sm font-medium">
               Ayuda
             </a>
           </nav>
         </div>
 
         <div class="flex items-center gap-3">
-          <button
+          <a href="https://portal.numart.com.co/session/login"
             class="text-blue-600 hover:text-blue-700 font-medium px-5 py-2 border border-blue-600 rounded-full text-sm transition-colors">
             Iniciar sesión
-          </button>
+          </a>
           <button
             class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-full text-sm transition-colors">
-            Abrir cuenta
+            ¡Empieza hoy!
           </button>
         </div>
       </div>
     </div>
   </header>
 
-   <section style="background-color: #fFC439;" class="relative bg-yellow-400 py-20 overflow-hidden">
+  <section style="background-color: #fFC439;" class="relative bg-yellow-400 py-20 overflow-hidden">
     <div class="absolute left-0 bottom-0 w-full h-1/2">
-      
-      <svg style="height: 50%" class="absolute left-0 bottom-0 w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="none" fill="none">
+
+      <svg style="height: 50%" class="absolute left-0 bottom-0 w-full h-full" viewBox="0 0 1200 400"
+        preserveAspectRatio="none" fill="none">
         <path
           d="M0 400L0 200C150 100 300 100 400 150C500 200 600 200 700 150C800 100 900 100 1000 150C1100 200 1150 200 1200 150L1200 400L0 400Z"
           fill="white" />
-          
+
       </svg>
     </div>
 
@@ -543,7 +546,7 @@
     <div class="max-w-7xl mx-auto px-6 py-16 md:py-24 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="fade-in">
-          
+
           <h2>
             <span class="animated-wrapper-text">
               <span class="animated-text active">Contabilidad inteligente</span>
@@ -650,7 +653,7 @@
             class="rounded-2xl w-full">
 
           <div class="absolute bottom-8 left-8 bg-white rounded-2xl shadow-2xl p-6 max-w-xs">
-            <p class="text-sm font-semibold text-gray-900 mb-4">Pagar con</p>
+            <p class="text-sm font-semibold text-gray-900 mb-4">Reportes</p>
             <div class="space-y-3">
               <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                 <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
@@ -660,9 +663,9 @@
                   </svg>
                 </div>
                 <div class="flex-1">
-                  <p class="text-sm font-medium text-gray-900">Tarjeta de crédito</p>
+                  <p class="text-sm font-medium text-gray-900">Ingresos</p>
                 </div>
-                <p class="text-sm font-semibold text-gray-900">$474.340 <span class="text-gray-500 text-xs">COP</span>
+                <p class="text-sm font-semibold text-gray-900">$1.607.899 <span class="text-gray-500 text-xs">COP</span>
                 </p>
               </div>
 
@@ -674,7 +677,7 @@
                   </svg>
                 </div>
                 <div class="flex-1">
-                  <p class="text-sm font-medium text-gray-900">Tarjeta de débito</p>
+                  <p class="text-sm font-medium text-gray-900">Egresos</p>
                 </div>
               </div>
             </div>
@@ -683,18 +686,19 @@
 
         <div class="fade-in">
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-6 leading-tight">
-            Paga como Prefieras
+            Reportes en un Click
           </h2>
           <h3 class="text-2xl font-bold text-blue-900 mb-4">
-            Agrega una tarjeta. Compra fácilmente.
+            El control es tuyo, y es fácil.
           </h3>
           <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-            Puedes utilizar cualquier tarjeta de crédito o débito para hacer compras internacionales.
+            Automatiza reportes, facturación electrónica, conciliaciones bancarias, gestión de inventarios e integración
+            con la DIAN en un solo sistema.
           </p>
-          <button
+          <a href="https://numart.com.co/contabilidad"
             class="text-blue-600 hover:text-blue-700 font-semibold px-6 py-3 border-2 border-blue-600 rounded-full transition-colors">
-            Agregar tarjetas
-          </button>
+            Más información
+        </a>
         </div>
       </div>
     </div>
@@ -706,16 +710,13 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="fade-in">
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-6 leading-tight">
-            Haz un seguimiento de tus compras
+            Haz un seguimiento de tus ventas
           </h2>
           <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-            Administra tus transacciones internacionales con Numart, desde ropa nueva hasta reservaciones de hotel, ya
-            sea en línea o en la aplicación para facilitar el monitoreo de tus pagos en un solo lugar.
+            Obtén una visión clara y detallada de cada transacción. Monitorea el rendimiento de tus productos en tiempo
+            real, identifica patrones de compra y toma decisiones inteligentes basadas en datos precisos para escalar tu
+            negocio.
           </p>
-          <button
-            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition-colors">
-            Descarga la aplicación
-          </button>
         </div>
 
         <div class="relative fade-in">
@@ -733,7 +734,7 @@
                   </div>
                   <p class="font-medium text-gray-900">Electrónica</p>
                 </div>
-                <p class="font-semibold text-gray-900">-$198.265</p>
+                <p class="font-semibold text-gray-900">+$698.265</p>
               </div>
 
               <div class="flex items-center justify-between">
@@ -742,9 +743,9 @@
                     class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
                     W
                   </div>
-                  <p class="font-medium text-gray-900">Ropa</p>
+                  <p class="font-medium text-gray-900">Papeleria</p>
                 </div>
-                <p class="font-semibold text-gray-900">-$405.792</p>
+                <p class="font-semibold text-gray-900">+$405.792</p>
               </div>
 
               <div class="flex items-center justify-between">
@@ -757,7 +758,7 @@
                   </div>
                   <p class="font-medium text-gray-900">Joyería</p>
                 </div>
-                <p class="font-semibold text-gray-900">-$503.842</p>
+                <p class="font-semibold text-gray-900">+$503.842</p>
               </div>
             </div>
           </div>
@@ -768,165 +769,202 @@
 
 
   <!-- Animated Steps Section -->
-  <section id="animated-steps" class="relative bg-white py-16 md:py-32 min-h-screen">
-    <div class="absolute left-0 top-0 w-[40%] h-full pointer-events-none">
-      <svg class="absolute left-0 top-0 h-full w-full" viewBox="0 0 400 800" preserveAspectRatio="none" fill="none">
-        <path d="M0 0L0 800L200 800C300 700 350 600 320 400C290 200 250 100 200 0L0 0Z" fill="#FFC439" />
-      </svg>
-    </div>
+  <section id="animated-steps" class="relative bg-white py-16 md:py-32 h-[250vh]">
+    <div class="sticky top-0 h-screen flex items-center justify-center">
+      <div class="absolute left-0 top-0 w-[40%] h-full pointer-events-none">
+        <svg class="absolute left-0 top-0 h-full w-full" viewBox="0 0 400 800" preserveAspectRatio="none" fill="none">
+          <path d="M0 0L0 800L200 800C300 700 350 600 320 400C290 200 250 100 200 0L0 0Z" fill="#FFC439" />
+        </svg>
+      </div>
 
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Phone Mockup Container -->
-        <div class="relative flex justify-center lg:justify-start" style="min-height: 650px;">
-          <div class="relative w-[300px] h-[650px]">
-            <!-- Step 1 -->
-            <div id="step1" class="phone-step visible">
-              <div class="w-[300px] bg-white rounded-[2.5rem] shadow-2xl p-3 border-8 border-gray-800">
-                <div class="bg-gray-50 rounded-[1.5rem] overflow-hidden h-[600px]">
-                  <div class="bg-white p-4 flex items-center gap-3 border-b">
-                    <div class="text-gray-600">←</div>
-                    <div>
-                      <p class="text-xs text-gray-500">Cartera digital</p>
-                      <p class="text-sm font-semibold text-gray-900">Carteras</p>
-                    </div>
-                  </div>
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Phone Mockup Container -->
+          <div class="sticky top-24 flex justify-center lg:justify-start" style="min-height: 650px;">
+            <div class="relative w-[300px] h-[650px]">
+              <!-- Step 1 -->
 
-                  <div class="p-4">
-                    <p class="text-xs text-gray-600 mb-3 flex items-center justify-between">
-                      Cuentas bancarias y tarjetas
-                      <span class="text-blue-600 text-lg">+</span>
-                    </p>
-
-                    <div class="bg-blue-600 rounded-xl p-8 mb-3 relative flex items-center justify-center">
-                      <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center pulse">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
+              <div id="step1" class="phone-step visible">
+                <div class="w-[300px] bg-white rounded-[2.5rem] shadow-2xl p-3 border-8 border-gray-800">
+                  <div class="bg-gray-50 rounded-[1.5rem] overflow-hidden h-[600px]">
+                    <div class="bg-white p-4 flex items-center gap-3 border-b">
+                      <div>
+                        <p class="text-xs text-gray-500">Carteras</p>
+                        <p class="text-sm font-semibold text-gray-900">Nómina</p>
                       </div>
                     </div>
 
-                    <div class="space-y-3">
-                      <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
-                        <div class="w-8 h-8 bg-gray-200 rounded"></div>
-                        <p class="text-sm text-gray-900">Tarjeta de débito</p>
-                      </div>
-                      <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
-                        <div class="w-8 h-8 bg-gray-200 rounded"></div>
-                        <p class="text-sm text-gray-900">Tarjeta de crédito</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <div class="p-4">
+                      <p class="text-xs text-gray-600 mb-3 flex items-center justify-between">
+                        Conceptos de nómina
+                        <span class="text-blue-600 text-lg">+</span>
+                      </p>
 
-            <!-- Step 2 -->
-            <div id="step2" class="phone-step hidden">
-              <div class="w-[300px] bg-white rounded-[2.5rem] shadow-2xl p-3 border-8 border-gray-800">
-                <div class="bg-gray-50 rounded-[1.5rem] overflow-hidden h-[600px]">
-                  <div class="bg-white p-4 flex items-center gap-3 border-b">
-                    <div class="text-gray-600">←</div>
-                    <div>
-                      <p class="text-xs text-gray-500">Agregar forma de pago</p>
-                      <p class="text-sm font-semibold text-gray-900">Carteras</p>
-                    </div>
-                  </div>
-
-                  <div class="p-4">
-                    <div class="mb-4 p-3 bg-white rounded-lg border flex items-center gap-2">
-                      <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                      <p class="text-sm text-gray-400">Buscar nombre del banco</p>
-                    </div>
-
-                    <p class="text-xs text-gray-600 mb-3">Bancos más frecuentes</p>
-
-                    <div class="space-y-2 mb-4">
-                      <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
-                        <div class="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
-                          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
+                      <div class="bg-blue-600 rounded-xl p-8 mb-3 relative flex items-center justify-center">
+                        <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center pulse">
+                          <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                           </svg>
                         </div>
-                        <div class="h-2 bg-gray-200 rounded flex-1"></div>
                       </div>
-                      <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
-                        <div class="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
-                          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
-                          </svg>
-                        </div>
-                        <div class="h-2 bg-gray-200 rounded flex-1"></div>
-                      </div>
-                    </div>
 
-                    <div
-                      class="flex items-center gap-3 p-4 bg-green-50 rounded-lg border-2 border-green-600 mb-3 pulse">
-                      <div class="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path
-                            d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
-                        </svg>
-                      </div>
-                      <p class="text-sm font-semibold text-gray-900">Asociar cuenta</p>
-                    </div>
-
-                    <div class="space-y-2">
-                      <div class="flex items-center gap-3 p-3 bg-white rounded-lg border opacity-50">
-                        <div class="w-8 h-8 bg-gray-400 rounded flex items-center justify-center">
-                          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
-                          </svg>
+                      <div class="space-y-3">
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
+                          <div class="w-8 h-8 bg-gray-200 rounded"></div>
+                          <p class="text-sm text-gray-900">Salario básico</p>
                         </div>
-                        <div class="h-2 bg-gray-200 rounded flex-1"></div>
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
+                          <div class="w-8 h-8 bg-gray-200 rounded"></div>
+                          <p class="text-sm text-gray-900">Auxilio de transporte</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div
-                class="absolute bottom-20 right-6 w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-xl pulse">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
+              <!-- Step 2 -->
+              <div id="step2" class="phone-step">
+                <div class="w-[300px] bg-white rounded-[2.5rem] shadow-2xl p-3 border-8 border-gray-800">
+                  <div class="bg-gray-50 rounded-[1.5rem] overflow-hidden h-[600px]">
+                    <div class="bg-white p-4 flex items-center gap-3 border-b">
+                      <div class="text-gray-600">←</div>
+                      <div>
+                        <p class="text-xs text-gray-500">Carteras</p>
+                        <p class="text-sm font-semibold text-gray-900">Nómina</p>
+                      </div>
+                    </div>
+
+                    <div class="p-4">
+                      <div class="mb-4 p-3 bg-white rounded-lg border flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <p class="text-sm text-gray-400">Buscar</p>
+                      </div>
+
+                      <p class="text-xs text-gray-600 mb-3">Proximas nóminas</p>
+
+                      <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
+                          <div class="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path
+                                d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
+                            </svg>
+                          </div>
+                          <div class="h-2 bg-gray-200 rounded flex-1"></div>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg border">
+                          <div class="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path
+                                d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
+                            </svg>
+                          </div>
+                          <div class="h-2 bg-gray-200 rounded flex-1"></div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex items-center gap-3 p-4 bg-green-50 rounded-lg border-2 border-green-600 mb-3 pulse">
+                        <div class="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
+                          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                              d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
+                          </svg>
+                        </div>
+                        <p class="text-sm font-semibold text-gray-900">Nómina 3</p>
+                      </div>
+
+                      <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg border opacity-50">
+                          <div class="w-8 h-8 bg-gray-400 rounded flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path
+                                d="M12 2L2 7v3h20V7l-10-5zM4 11v8h2v-8H4zm5 0v8h2v-8H9zm5 0v8h2v-8h-2zm5 0v8h2v-8h-2zM2 21h20v2H2v-2z" />
+                            </svg>
+                          </div>
+                          <div class="h-2 bg-gray-200 rounded flex-1"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+              <div id="step3" class="phone-step">
+                <div class="w-[300px] bg-white rounded-[2.5rem] shadow-2xl p-3 border-8 border-gray-800">
+                  <div class="bg-gray-50 rounded-[1.5rem] overflow-hidden h-[600px]">
+                    <div class="bg-white p-4 flex items-center gap-3 border-b">
+                      <div class="text-gray-600">←</div>
+                      <div>
+                        <p class="text-xs text-gray-500">Carteras</p>
+                        <p class="text-sm font-semibold text-gray-900">Nómina</p>
+                      </div>
+                    </div>
+
+                    <div class="p-4">
+
+
+                      <p class="text-xs text-gray-600 mb-3">Novedades</p>
+
+
+
+                      <div class="flex items-center gap-3 p-4 bg-green-50 rounded-lg border-2 border-green-600 mb-3">
+                        <div class="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="white" style="width: auto;height: 18px;"
+                            viewBox="0 0 512 512">
+                            <path
+                              d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" />
+                          </svg>
+                        </div>
+                        <p class="text-sm font-semibold text-gray-900">Enviado a la DIAN</p>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Content -->
-        <div class="fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-8">
-            Agrega tarjetas
-          </h2>
+          <!-- Content -->
+          <div class="fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-8">
+              Nómina facil y ágil
+            </h2>
 
-          <div class="space-y-6">
-            <div id="text-step1">
-              <p class="text-lg text-blue-900 font-semibold mb-2">
-                Selecciona el icono de "más" para agregar tarjetas.
-              </p>
-            </div>
+            <div class="space-y-6">
+              <div id="text1">
+                <p class="text-lg text-blue-900 font-semibold mb-2">
+                  Configura tu nómina
+                </p>
+                <p class="text-gray-600">
+                  Crea devengados, deducciones y prestaciones.
+                </p>
+              </div>
 
-            <div id="text-step2" class="opacity-30">
-              <p class="text-lg text-blue-900 font-semibold mb-2">
-                Asociar tarjeta
-              </p>
-              <p class="text-gray-600">
-                Ingresa manualmente tus datos para verificar la tarjeta y la dirección de facturación.
-              </p>
-            </div>
+              <div id="text2" class="opacity-30">
+                <p class="text-lg text-blue-900 font-semibold mb-2">
+                  Liquida y paga
+                </p>
+                <p class="text-gray-600">
+                  Gestiona pagos mensuales o quincenales en segundos.
+                </p>
+              </div>
 
-            <div class="opacity-30">
-              <p class="text-lg font-semibold mb-2 text-gray-400">
-                Empieza a comprar
-              </p>
+              <div id="text3" class="opacity-30">
+                <p class="text-lg text-blue-900 font-semibold mb-2">
+                  Envía a la DIAN
+                </p>
+                <p class="text-gray-600">
+                  Emite y transmite tu nómina electrónica fácilmente. </p>
+              </div>
             </div>
           </div>
         </div>
@@ -954,39 +992,25 @@
   <footer class="bg-gray-50 border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-6 py-12">
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8">
-        <div>
-          <h3 class="font-semibold text-gray-900 text-sm mb-4">Comprar</h3>
-          <ul class="space-y-3">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Cómo comprar</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Envíos</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Protección</a></li>
-          </ul>
-        </div>
 
-        <div>
-          <h3 class="font-semibold text-gray-900 text-sm mb-4">Vender</h3>
-          <ul class="space-y-3">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Empezar</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Tarifas</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Protección</a></li>
-          </ul>
-        </div>
 
         <div>
           <h3 class="font-semibold text-gray-900 text-sm mb-4">Numart</h3>
           <ul class="space-y-3">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Acerca de</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Empleos</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Prensa</a></li>
+            <li><a href="https://numart.com.co/quienes-somos"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Acerca de</a></li>
+            <li><a href="https://trabajos.numart.com.co/vacantes"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Empleos</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="font-semibold text-gray-900 text-sm mb-4">Soporte</h3>
           <ul class="space-y-3">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Centro de ayuda</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Contáctanos</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Centro de resolución</a>
+            <li><a href="https://help.numart.com.co"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Centro de ayuda</a></li>
+            <li><a href="https://numart.com.co/soporte"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Contáctanos</a></li>
             </li>
           </ul>
         </div>
@@ -994,18 +1018,22 @@
         <div>
           <h3 class="font-semibold text-gray-900 text-sm mb-4">Desarrolladores</h3>
           <ul class="space-y-3">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">API Numart</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Documentación</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Comunidad</a></li>
+            <li><a href="https://developer.numart.com.co/"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">API Numart</a></li>
+            <li><a href="https://comunidad.numart.com.co/"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Comunidad</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="font-semibold text-gray-900 text-sm mb-4">Empresas</h3>
           <ul class="space-y-3">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Business</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Socios</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Marketplace</a></li>
+            <li><a href="https://numart.com.co/empresas"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Business</a></li>
+            <li><a href="https://numart.com.co/nuestros-socios"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Socios</a></li>
+            <li><a href="https://marketplace.numart.com.co/"
+                class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Marketplace</a></li>
           </ul>
         </div>
       </div>
@@ -1013,10 +1041,11 @@
       <div
         class="pt-8 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600">
         <div class="flex flex-wrap items-center gap-4">
-          <span>© 1999-2025 Numart</span>
-          <a href="#" class="hover:text-blue-600 transition-colors">Privacidad</a>
-          <a href="#" class="hover:text-blue-600 transition-colors">Términos legales</a>
-          <a href="#" class="hover:text-blue-600 transition-colors">Mapa del sitio</a>
+          <span>© 2026 Numart</span>
+          <a href="https://help.numart.com.co/privacidad" class="hover:text-blue-600 transition-colors">Privacidad</a>
+          <a href="https://help.numart.com.co/terminos-y-condiciones"
+            class="hover:text-blue-600 transition-colors">Términos y condiciones</a>
+          <a href="https://legal.numart.com.co/" class="hover:text-blue-600 transition-colors">Legales</a>
         </div>
         <div>
           <button class="hover:text-blue-600 transition-colors">🇪🇸 Español</button>
@@ -1024,7 +1053,57 @@
       </div>
     </div>
   </footer>
+  <script>
+    const section = document.getElementById("animated-steps");
 
+    const steps = [
+      document.getElementById("step1"),
+      document.getElementById("step2"),
+      document.getElementById("step3"),
+    ];
+
+    const texts = [
+      document.getElementById("text1"),
+      document.getElementById("text2"),
+      document.getElementById("text3"),
+    ];
+
+    window.addEventListener("scroll", () => {
+
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+
+      const progress = Math.min(
+        Math.max(-rect.top / (sectionHeight - window.innerHeight), 0),
+        1
+      );
+
+      let stepIndex = Math.floor(progress * steps.length);
+
+      // 🔥 Si la sección ya terminó (scroll pasó completamente)
+      if (rect.bottom < window.innerHeight) {
+        stepIndex = steps.length - 1;
+      }
+
+      // 🔥 Si todavía no ha entrado
+      if (rect.top > 0) {
+        stepIndex = 0;
+      }
+
+      steps.forEach((step, index) => {
+        step.classList.toggle("visible", index === stepIndex);
+      });
+
+      texts.forEach((text, index) => {
+        if (index === stepIndex) {
+          text.classList.remove("opacity-30");
+        } else {
+          text.classList.add("opacity-30");
+        }
+      });
+
+    });
+  </script>
   <script>
     let launchDate = new Date("Jul 25, 2026 12:00:00").getTime();
 
@@ -1074,45 +1153,7 @@
       observer.observe(el);
     });
 
-    // Animated Steps Section - Phone Mockup Change on Scroll
-    const stepsSection = document.getElementById('animated-steps');
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
-    const textStep1 = document.getElementById('text-step1');
-    const textStep2 = document.getElementById('text-step2');
 
-    let currentStep = 1;
-
-    window.addEventListener('scroll', () => {
-      if (!stepsSection) return;
-
-      const rect = stepsSection.getBoundingClientRect();
-      const sectionTop = rect.top;
-      const sectionHeight = rect.height;
-      const windowHeight = window.innerHeight;
-
-      // Calculate progress through the section (0 to 1)
-      const progress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight / 2)));
-
-      // Switch to step 2 when progress is > 0.5
-      if (progress > 0.5 && currentStep === 1) {
-        currentStep = 2;
-        step1.classList.remove('visible');
-        step1.classList.add('hidden');
-        step2.classList.remove('hidden');
-        step2.classList.add('visible');
-        textStep1.style.opacity = '0.3';
-        textStep2.style.opacity = '1';
-      } else if (progress <= 0.5 && currentStep === 2) {
-        currentStep = 1;
-        step2.classList.remove('visible');
-        step2.classList.add('hidden');
-        step1.classList.remove('hidden');
-        step1.classList.add('visible');
-        textStep1.style.opacity = '1';
-        textStep2.style.opacity = '0.3';
-      }
-    });
 
     // Pricing Plans JavaScript
     (function () {
@@ -1198,7 +1239,7 @@
             { text: 'Ingresos ilimitados*', included: true },
             { text: 'Hasta 2 bodegas con gestión por ubicación', included: true },
             { text: 'Reportes básicos descargables en Excel y PDF', included: true },
-            { text: 'Soporte 24/7 por chat y correo', included: true },
+            { text: 'Soporte 24/7 por chat y correo', included: false },
           ]
         }
       ];
